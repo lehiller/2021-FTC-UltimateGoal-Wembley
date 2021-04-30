@@ -1,13 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.util;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.util.Robot;
 
-@TeleOp("WembleyTeleOp" , group="Iterative Opmode")
-
-public class TeleOp extends OpMode {
+@TeleOp(name = "WembleyTeleOpAS", group="Iterative Opmode")
+public class TeleOperated extends OpMode {
 
     private Robot robot;
     /**
@@ -20,7 +18,7 @@ public class TeleOp extends OpMode {
     }
 
     /**
-     * Runs the robot movements
+     * Runs the robot movements when play is pressed on driver phone
      */
     @Override
     public void loop() {
@@ -28,7 +26,7 @@ public class TeleOp extends OpMode {
     }
 
     /**
-     * Stops all Robot movements
+     * Stops all Robot movements when stop is pressed on driver phone
      */
     @Override
     public void stop() {

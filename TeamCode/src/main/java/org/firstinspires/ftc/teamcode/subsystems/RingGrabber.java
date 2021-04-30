@@ -34,7 +34,7 @@ public class RingGrabber extends Subsystem {
     public void run() {
         if(Robot.g2.right_bumper)
             clockwise();
-        else if(Robot.g1.b)
+        else if(Robot.g2.left_bumper)
             counterclockwise();
         else
             stop();

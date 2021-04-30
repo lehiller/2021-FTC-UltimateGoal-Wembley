@@ -35,15 +35,30 @@ public class RingShooter extends Subsystem {
 
 
 
+    public void  spin(double speed)
+    {
+        RightOut.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        LeftOut.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        RightOut.setVelocity(speed);
+        LeftOut.setVelocity(speed);
+    }
+
+
 
 
     public void spinup()
     {
-        RightOut.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        LeftOut.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        RightOut.setVelocity(HIGH_SPIN_RATE);
-        LeftOut.setVelocity(HIGH_SPIN_RATE);
+        spin (Constants.HIGH_SPIN_RATE);
     }
+
+
+    public void powershot()
+    {
+        spin( Constants.POWER_SPIN_RATE);
+
+    }
+
+
 
 
 
@@ -52,24 +67,28 @@ public class RingShooter extends Subsystem {
 
     @Override
     public void run() {
-        if (Robot.g2.y) {
+        if (Robot.g2.y)
             spinup();
         else
             stop();
-        }
-        if (Robot.g2.a) {
+
+        if (Robot.g2.start) {
             Bump.setPower(1);
-        else if(Robot.g2.b)
+        }
+        else if(Robot.g2.back) {
             Bump.setPower(-1);
-        else
-                Bump.setPower(0);
+        }
+        else {
+            Bump.setPower(0);
         }
 
         if (Robot.g2.a) {
             Trigger.setPower(1);
-        else if(Robot.g2.b)
+        }
+        else if(Robot.g2.b) {
             Trigger.setPower(-1);
-        else
+        }
+        else {
                 Trigger.setPower(0);
         }
 
@@ -77,8 +96,11 @@ public class RingShooter extends Subsystem {
     }
 
     @Override
-    public void stop() {
-        spin(0);
+    public void stop(){
+
+        spin (0);
+
+
     }
 
 }

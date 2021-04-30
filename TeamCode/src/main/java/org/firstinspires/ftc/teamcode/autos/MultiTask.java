@@ -6,7 +6,7 @@ package org.firstinspires.ftc.teamcode.autos;
  * Simply have a loop use a function, and have the function be whatever action is required.
  */
 
-public class MultiTask {
+public interface MultiTask {
 
     void execute();
     void stop();

@@ -17,8 +17,9 @@ import org.firstinspires.ftc.teamcode.util.RobotMap;
             LeftArm = Robot.hw.get(DcMotorEx.class, RobotMap.LEFT_ARM_ID);
             RightArm = Robot.hw.get(DcMotorEx.class, RobotMap.RIGHT_ARM_ID);
 
-            LeftArm.setDirection(DcMotorSimple.Direction.REVERSE);
-            RightArm.setDirection(DcMotorSimple.Direction.REVERSE);
+            LeftArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            RightArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
         }
 
         public void armup() {
@@ -43,7 +44,8 @@ import org.firstinspires.ftc.teamcode.util.RobotMap;
                 RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 LeftArm.setVelocity(400);
                 RightArm.setVelocity(400);
-            } else if (Robot.g2.dpad_left) {
+            }
+            else if (Robot.g2.dpad_left) {
                 LeftArm.setTargetPosition(50);
                 RightArm.setTargetPosition(50);
                 LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -51,13 +53,23 @@ import org.firstinspires.ftc.teamcode.util.RobotMap;
                 LeftArm.setVelocity(1200);
                 RightArm.setVelocity(1200);
 
-            } else {
+            }
+            else if (Robot.g2.dpad_down) {
                 LeftArm.setTargetPosition(0);
                 RightArm.setTargetPosition(0);
                 LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LeftArm.setVelocity(1200);
-                RightArm.setVelocity(1200);
+                LeftArm.setVelocity(200);
+                RightArm.setVelocity(200);
+
+            }
+            else {
+                LeftArm.setTargetPosition(0);
+                RightArm.setTargetPosition(0);
+                LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                LeftArm.setVelocity(50);
+                RightArm.setVelocity(50);
             }
         }
             @Override
