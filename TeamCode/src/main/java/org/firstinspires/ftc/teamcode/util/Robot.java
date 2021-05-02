@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.util;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -16,21 +15,19 @@ import org.firstinspires.ftc.teamcode.subsystems.DriveTrain;
 import org.firstinspires.ftc.teamcode.subsystems.RingGrabber;
 import org.firstinspires.ftc.teamcode.subsystems.RingShooter;
 import org.firstinspires.ftc.teamcode.subsystems.WobbleGrabber;
-import org.firstinspires.ftc.teamcode.subsystems.Subsystem;
-
 
 
 public class Robot  extends RobotBase {
 
 
-    public DriveTrain DriveTrain;
-    public Arm Arm;
-    public RingGrabber RingGrabber;
-    public RingShooter RingShooter;
-    public WobbleGrabber WobbleGrabber;
-    public static Camera Camera;
-    public static Gyro Gyro;
-    public static org.firstinspires.ftc.teamcode.sensors.Color Color;
+    public DriveTrain driveTrain;
+    public Arm arm;
+    public RingGrabber ringGrabber;
+    public RingShooter ringShooter;
+    public WobbleGrabber wobbleGrabber;
+    public static Camera camera;
+    public static Gyro gyro;
+    public static org.firstinspires.ftc.teamcode.sensors.Color color;
 
 
 
@@ -45,14 +42,14 @@ public class Robot  extends RobotBase {
 
     @Override
     public void initSubsystems() {
-        Arm = new Arm();
-        DriveTrain = new DriveTrain();
-        RingGrabber = new RingGrabber();
-        RingShooter = new RingShooter();
-        WobbleGrabber = new WobbleGrabber();
-        Camera = new Camera();
-        Gyro = new Gyro();
-        Color = new Color();
+        arm = new Arm();
+        driveTrain = new DriveTrain();
+        ringGrabber = new RingGrabber();
+        ringShooter = new RingShooter();
+        wobbleGrabber = new WobbleGrabber();
+        camera = new Camera();
+        gyro = new Gyro();
+        color = new Color();
 
 
     }

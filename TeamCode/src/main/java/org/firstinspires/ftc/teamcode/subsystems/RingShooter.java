@@ -46,7 +46,7 @@ public class RingShooter extends Subsystem {
 
 
 
-    public void spinup()
+    public void spinUp()
     {
         spin (Constants.HIGH_SPIN_RATE);
     }
@@ -68,7 +68,7 @@ public class RingShooter extends Subsystem {
     @Override
     public void run() {
         if (Robot.g2.y)
-            spinup();
+            spinUp();
         else
             stop();
 

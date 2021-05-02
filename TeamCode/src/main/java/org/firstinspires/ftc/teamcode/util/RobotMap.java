@@ -31,10 +31,8 @@ public class RobotMap {
     public static final String TRIGGER_ID = "Trigger";
     public static final String BUMP_ID = "Bump";
 
-    //Name the sensors
-    public static Telemetry telemetry;
-    public static    BNO055IMU imu;
-    public static Gamepad g1, g2;
-    public static ElapsedTime timer;
-    public static ColorSensor LeftColor, RightColor;
+    //Name the sensors that are in Config
+
+    public static final String LEFT_COLOR_SENSOR_ID = "LeftColor";
+    public static final String RIGHT_COLOR_SENSOR_ID = "RightColor";
 }

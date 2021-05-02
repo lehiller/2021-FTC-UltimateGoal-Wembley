@@ -40,6 +40,15 @@ public class RingGrabber extends Subsystem {
             stop();
     }
 
+
+    //Auto Methods for Ring Grabber
+
+    //don't exist yet...
+
+
+
+
+
     @Override
     public void stop() {
         move(0);

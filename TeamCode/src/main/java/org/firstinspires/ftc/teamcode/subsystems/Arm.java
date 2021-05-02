@@ -20,60 +20,90 @@ import org.firstinspires.ftc.teamcode.util.RobotMap;
             LeftArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             RightArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
+            holdArm(true);
         }
 
-        public void armup() {
-            move(1.0);
-        }
 
-        public void armdown() {
-            move(-1.0);
-        }
 
-        private void move(double speed) {
-            LeftArm.setPower(speed);
-            RightArm.setPower(speed);
-        }
+
+
 
         @Override
         public void run() {
             if (Robot.g2.dpad_up) {
-                LeftArm.setTargetPosition(135);
-                RightArm.setTargetPosition(135);
-                LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LeftArm.setVelocity(400);
-                RightArm.setVelocity(400);
+                armUp();
             }
             else if (Robot.g2.dpad_left) {
-                LeftArm.setTargetPosition(50);
-                RightArm.setTargetPosition(50);
-                LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LeftArm.setVelocity(1200);
-                RightArm.setVelocity(1200);
+                armMid();
 
             }
             else if (Robot.g2.dpad_down) {
+                armDown();
+
+            }
+        }
+
+        //here are our Auto Methods for the Arm
+
+            public void resetArms() {
+
+                LeftArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                RightArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                }
+
+
+            public void armDown() {
                 LeftArm.setTargetPosition(0);
                 RightArm.setTargetPosition(0);
                 LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 LeftArm.setVelocity(200);
                 RightArm.setVelocity(200);
+                Robot.telemetry.addData("Arm Position", LeftArm.getCurrentPosition());
+
 
             }
-            else {
-                LeftArm.setTargetPosition(0);
-                RightArm.setTargetPosition(0);
+
+            public void armMid() {
+                LeftArm.setTargetPosition(50);
+                RightArm.setTargetPosition(50);
                 LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LeftArm.setVelocity(50);
-                RightArm.setVelocity(50);
+                LeftArm.setVelocity(1200);
+                RightArm.setVelocity(1200);
+                Robot.telemetry.addData("Arm Position", LeftArm.getCurrentPosition());
+
             }
+
+            public void armUp() {
+                LeftArm.setTargetPosition(135);
+                RightArm.setTargetPosition(135);
+                LeftArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                RightArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);LeftArm.setVelocity(1200);
+                RightArm.setVelocity(400);
+                Robot.telemetry.addData("Arm Position", LeftArm.getCurrentPosition());
+
+            }
+
+
+            public void holdArm( boolean turnOn) {
+            if (turnOn ) {
+                LeftArm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+                RightArm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            }
+            else {
+                LeftArm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+                RightArm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+            }
+            Robot.telemetry.addData("Arm Position", LeftArm.getCurrentPosition());
+
         }
-            @Override
-            public void stop() { move(0); }
+
+
+                @Override
+                public void stop () {
+
+                }
 
 
 

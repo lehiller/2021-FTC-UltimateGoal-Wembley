@@ -18,9 +18,9 @@ public class WobbleGrabber extends Subsystem {
 
     @Override
     public void run() {
-        if(Robot.g2.right_bumper)
+        if(Robot.g2.right_trigger>0.5)
             Claw.setPower(-1);
-        else if(Robot.g1.left_bumper)
+        else if(Robot.g1.left_trigger>0.5)
             Claw.setPower(1);
         else
             Claw.setPower(0);

@@ -2,37 +2,40 @@ package org.firstinspires.ftc.teamcode.sensors;
 
 
 
+import org.firstinspires.ftc.teamcode.util.Robot;
 import org.firstinspires.ftc.teamcode.util.RobotMap;
-import com.qualcomm.robotcore.hardware.DistanceSensor;
-import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
-import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 
-import static org.firstinspires.ftc.teamcode.util.RobotMap.LeftColor;
-import static org.firstinspires.ftc.teamcode.util.RobotMap.RightColor;
-import org.firstinspires.ftc.robotcore.external.Telemetry;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+
 
 public class Color {
 
+    private ColorSensor leftColor, rightColor;
 
-    RobotMap.LeftColor.enableLed(true);
-    RobotMap.RightColor.enableLed(true);
-
+    public Color ()
+    {
+        leftColor= Robot.hw.get(ColorSensor.class, RobotMap.LEFT_COLOR_SENSOR_ID);
+        rightColor= Robot.hw.get(ColorSensor.class, RobotMap.RIGHT_COLOR_SENSOR_ID);
+    }
 
 
     public double seeBlue()
     {
-    return LeftColor.blue();
-    telemetry.addData("blue = " , LeftColor.blue());
+        Robot.telemetry.addData("blue = " , leftColor.blue());
+        return leftColor.blue();
+
     }
 
     public double seeRed()
     {
-     return LeftColor.red();
+        Robot.telemetry.addData("red= " , leftColor.red());
+        return leftColor.red();
     }
 
     public double seeWhite()
     {
-    return LeftColor.alpha();
+        Robot.telemetry.addData("white = " , leftColor.alpha());
+        return leftColor.alpha();
     }
 
 

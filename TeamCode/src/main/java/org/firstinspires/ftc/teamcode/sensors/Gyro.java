@@ -5,9 +5,15 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.teamcode.util.RobotMap;
+import org.firstinspires.ftc.teamcode.util.Robot;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import java.util.Locale;
+
+
 
 public class Gyro {
+
+    private BNO055IMU imu;
 
     private double  globalAngle, power = .30, correction;
     private Orientation lastAngles = new Orientation();
@@ -18,7 +24,7 @@ public class Gyro {
      */
     public double getAngle()
     {
-        Orientation angles = RobotMap.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         double deltaAngle = angles.firstAngle - lastAngles.firstAngle;
 
         if (deltaAngle < -180)
@@ -67,10 +73,10 @@ public class Gyro {
     public void print()
     {
         //   getAngle();
-        RobotMap.telemetry.addData("1 imu heading", lastAngles.firstAngle);
-        RobotMap.telemetry.addData("2 global heading", globalAngle);
-        RobotMap.telemetry.addData("3 correction", correction);
-        RobotMap.telemetry.addData("calib", RobotMap.imu.getCalibrationStatus().toString());
+        Robot.telemetry.addData("1 imu heading", lastAngles.firstAngle);
+        Robot.telemetry.addData("2 global heading", globalAngle);
+        Robot.telemetry.addData("3 correction", correction);
+        Robot.telemetry.addData("calib", imu.getCalibrationStatus().toString());
     }
 
     public void testPrint()
@@ -85,7 +91,7 @@ public class Gyro {
      */
     public void resetAngle()
     {
-        lastAngles = RobotMap.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        lastAngles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
         globalAngle = 0;
     }
