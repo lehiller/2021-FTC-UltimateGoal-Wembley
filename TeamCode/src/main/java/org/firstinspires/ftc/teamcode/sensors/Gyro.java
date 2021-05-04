@@ -70,7 +70,7 @@ public class Gyro {
     /**
      * Outputs information to telemetry
      */
-    public void print()
+    public void printTelemetry()
     {
         //   getAngle();
         Robot.telemetry.addData("1 imu heading", lastAngles.firstAngle);

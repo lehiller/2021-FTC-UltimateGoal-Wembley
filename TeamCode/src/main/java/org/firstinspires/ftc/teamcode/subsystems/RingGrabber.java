@@ -16,6 +16,9 @@ public class RingGrabber extends Subsystem {
         Finger = Robot.hw.get(CRServo.class, RobotMap.FINGER_ID);
     }
 
+
+    // methods for ringgrabber:
+
     public void clockwise()
     {
         move(Constants.INTAKE_SPEED);
@@ -30,6 +33,9 @@ public class RingGrabber extends Subsystem {
         Finger.setPower(speed);
     }
 
+
+
+
     @Override
     public void run() {
         if(Robot.g2.right_bumper)
@@ -41,9 +47,6 @@ public class RingGrabber extends Subsystem {
     }
 
 
-    //Auto Methods for Ring Grabber
-
-    //don't exist yet...
 
 
 

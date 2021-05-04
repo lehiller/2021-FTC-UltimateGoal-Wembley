@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorImplEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.Range;
 
@@ -278,7 +277,7 @@ public class DriveTrain extends Subsystem {
             double error = (Robot.gyro.getHeading() - desiredHeading);
             while (Robot.opMode.opModeIsActive() && Math.abs(error) > 0.3  && (Robot.timer.time() < timeoutS)) {
 
-                Robot.gyro.print();
+                Robot.gyro.printTelemetry();
                 Robot.telemetry.update();
                 f.execute();
             }

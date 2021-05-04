@@ -2,15 +2,20 @@ package org.firstinspires.ftc.teamcode.autos;
 
 
 
-//drive forward to line, shoot 3 rings, park on line.
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.util.Robot;
+import org.firstinspires.ftc.teamcode.sensors.Camera;
+import org.firstinspires.ftc.teamcode.sensors.Color;
+import org.firstinspires.ftc.teamcode.sensors.Gyro;
 
 
+
+@Autonomous(name = "SimpleAuto", group = "autos")
 public class SimpleAuto extends LinearOpMode {
 
 
@@ -23,6 +28,16 @@ public class SimpleAuto extends LinearOpMode {
         robot = new Robot(hardwareMap, telemetry, gamepad1, gamepad2, this);
 
         // anything up here will happen after init but before play  (cameras, zeroing...)
+        robot.initSubsystems();
+
+
+
+        robot.gyro.getHeading();
+        robot.gyro.printTelemetry();
+
+
+
+        robot.camera.detect();
 
         waitForStart();
         //anything here  happens once after play.
@@ -30,7 +45,13 @@ public class SimpleAuto extends LinearOpMode {
 
         //just drive
 
-        robot.driveTrain.encoderDrive( .8, 12, 12,5);
+        robot.driveTrain.encoderDrive( .4, 57, 58,5);
+
+        robot.driveTrain.turnOnHeading(.5,90,3);
+
+
+
+        /*
 
         //drive and get ready to shoot
         MultiTask spinUp = new MultiTask() {
@@ -47,7 +68,7 @@ public class SimpleAuto extends LinearOpMode {
 
         robot.driveTrain.encoderDrive( .8, 12, 12,5, spinUp);
 
-
+           */
 
     }
 }

@@ -24,7 +24,7 @@ public class RingShooter extends Subsystem {
         RightOut = Robot.hw.get(DcMotorEx.class, RobotMap.RIGHT_OUT_ID);
 
         LeftOut.setDirection(DcMotorSimple.Direction.REVERSE);
-        RightOut.setDirection(DcMotorSimple.Direction.REVERSE);
+        RightOut.setDirection(DcMotorSimple.Direction.FORWARD);
 
         Trigger = Robot.hw.get(CRServo.class, RobotMap.TRIGGER_ID);
         Bump = Robot.hw.get(CRServo.class, RobotMap.BUMP_ID);

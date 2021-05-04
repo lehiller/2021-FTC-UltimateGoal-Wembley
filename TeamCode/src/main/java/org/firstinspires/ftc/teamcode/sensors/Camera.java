@@ -112,6 +112,12 @@ public class Camera {
     return type ;
     }
 
+
+
+
+
+
+
     /**
      * Initialize the Vuforia localization engine.
      */

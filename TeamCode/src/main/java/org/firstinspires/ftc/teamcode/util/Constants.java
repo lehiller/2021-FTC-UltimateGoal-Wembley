@@ -15,7 +15,7 @@ public class Constants {
 
     public static final double INTAKE_SPEED = 1.0;
 
-    public static final double COUNTS_PER_INCH= 300;
+    public static final double COUNTS_PER_INCH= 30;
     public static final double TURN_P = 0;
     public static final double TURN_I = 0;
     public static final double TURN_D = 0;
