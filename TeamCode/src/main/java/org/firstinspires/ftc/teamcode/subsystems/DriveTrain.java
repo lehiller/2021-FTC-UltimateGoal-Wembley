@@ -122,28 +122,28 @@ public class DriveTrain extends Subsystem {
      */
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutS, MultiTask f)
     {
-        int lmTarget, lbTarget, rmTarget, rbTarget;
+        int lfTarget, lbTarget, rfTarget, rbTarget;
 
         // Ensure that the opmode is still active
         if (Robot.opMode.opModeIsActive()) {
             resetEncoders();
 
             // Determine new target position, and pass to motor controller
-            lmTarget = lfDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
-            lbTarget = lbDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
-            rmTarget = rfDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
-            rbTarget = rbDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
-            lfDrive.setTargetPosition(lmTarget);
-            lbDrive.setTargetPosition(lbTarget);
-            rfDrive.setTargetPosition(rmTarget);
-            rbDrive.setTargetPosition(rbTarget);
+            lfTarget = lfDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
+            //lbTarget = lbDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
+            rfTarget = rfDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
+            //rbTarget = rbDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
+            lfDrive.setTargetPosition(lfTarget);
+            //lbDrive.setTargetPosition(lbTarget);
+            rfDrive.setTargetPosition(rfTarget);
+           // rbDrive.setTargetPosition(rbTarget);
 
             // Turn On RUN_TO_POSITION
             lfDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            lbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+           // lbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             rfDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            rbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            //rbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             Robot.timer.reset();
@@ -203,19 +203,19 @@ public class DriveTrain extends Subsystem {
             resetEncoders();
             // Determine new target position, and pass to motor controller
             lmTarget = lfDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
-            lbTarget = lbDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
+            //lbTarget = lbDrive.getCurrentPosition() + (int)(leftInches * Constants.COUNTS_PER_INCH);
             rmTarget = rfDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
-            rbTarget = rbDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
+            //rbTarget = rbDrive.getCurrentPosition() + (int)(rightInches * Constants.COUNTS_PER_INCH);
             lfDrive.setTargetPosition(lmTarget);
-            lbDrive.setTargetPosition(lbTarget);
+            //lbDrive.setTargetPosition(lbTarget);
             rfDrive.setTargetPosition(rmTarget);
-            rbDrive.setTargetPosition(rbTarget);
+            //rbDrive.setTargetPosition(rbTarget);
 
             // Turn On RUN_TO_POSITION
             lfDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            lbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+           // lbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             rfDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            rbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+           // rbDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             Robot.timer.reset();

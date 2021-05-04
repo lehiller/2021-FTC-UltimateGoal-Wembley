@@ -28,7 +28,7 @@ public class SimpleAuto extends LinearOpMode {
         robot = new Robot(hardwareMap, telemetry, gamepad1, gamepad2, this);
 
         // anything up here will happen after init but before play  (cameras, zeroing...)
-        robot.initSubsystems();
+
 
 
 
